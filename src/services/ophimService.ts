@@ -384,9 +384,9 @@ export const ophimService = {
   ): Promise<SearchResponse> => {
     try {
       const response = await axios.get<OphimResponse<SearchResponse>>(
-        `${API_BASE_URL}/danh-sach/phim-bo`,
+        `${API_BASE_URL}/tim-kiem`,
         {
-          params: { keyword, page },
+          params: { keyword },
           timeout: 10000,
         },
       );
