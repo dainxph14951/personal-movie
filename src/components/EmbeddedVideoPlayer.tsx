@@ -10,8 +10,10 @@ import {
   InputLabel,
   Card,
   CardContent,
+  Button,
 } from "@mui/material";
 import { ophimService, MovieDetail, Episode } from "@services/ophimService";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 interface EmbeddedVideoPlayerProps {
   movieSlug: string;
@@ -149,41 +151,57 @@ export const EmbeddedVideoPlayer: React.FC<EmbeddedVideoPlayerProps> = ({
           </FormControl>
         )}
 
-        {/* Episode Selection */}
-        {currentServerEpisodes.length > 1 && (
-          <FormControl
-            size="small"
-            sx={{ minWidth: "200px" }}
-            variant="outlined"
-          >
-            <InputLabel>Tập</InputLabel>
-            <Select
-              value={selectedEpisode?.name || ""}
-              onChange={(e) => {
-                const episode = currentServerEpisodes.find(
-                  (ep) => ep.name === e.target.value,
-                );
-                if (episode) {
-                  setSelectedEpisode(episode);
-                }
-              }}
-              label="Tập"
-            >
-              {currentServerEpisodes.map((ep) => (
-                <MenuItem key={ep.name} value={ep.name}>
-                  {ep.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        )}
-
         {/* Episode Info */}
         {selectedEpisode && (
           <Typography variant="body2" color="textSecondary" sx={{ mt: 2 }}>
             Đang xem: <strong>{selectedEpisode.name}</strong> - Server:{" "}
             <strong>{selectedServer}</strong>
           </Typography>
+        )}
+
+        {/* Episode Selection */}
+        {currentServerEpisodes.length > 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1.5,
+              mt: 2,
+            }}
+          >
+            {currentServerEpisodes.map((ep) => {
+              const isActive = selectedEpisode?.name === ep.name;
+
+              return (
+                <Button
+                  key={ep.name}
+                  variant="contained"
+                  size="medium"
+                  startIcon={<PlayArrowIcon />}
+                  onClick={() => setSelectedEpisode(ep)}
+                  sx={{
+                    textTransform: "none",
+                    borderRadius: "8px",
+                    minWidth: "120px",
+                    padding: "10px 20px",
+                    fontSize: "0.95rem",
+                    fontWeight: 500,
+
+                    backgroundColor: isActive ? "#ffd567" : "#2a2e3b",
+                    color: isActive ? "#1a1a1a" : "#fff",
+
+                    "&:hover": {
+                      backgroundColor: isActive ? "#ffca3a" : "#3d4454",
+                    },
+
+                    boxShadow: "none",
+                  }}
+                >
+                  {ep.name}
+                </Button>
+              );
+            })}
+          </Box>
         )}
       </CardContent>
     </Card>

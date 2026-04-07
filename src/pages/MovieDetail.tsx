@@ -70,7 +70,7 @@ export const MovieDetail: React.FC = () => {
           onClick={() => navigate(-1)}
           sx={{ mb: 2 }}
         >
-          Quay lại
+          Quay lại luôn dỗi rồi :(
         </Button>
         <Typography color="error">{error || "Không tìm thấy phim"}</Typography>
       </Container>
@@ -109,7 +109,7 @@ export const MovieDetail: React.FC = () => {
         <Button
           startIcon={<ArrowBackIcon />}
           onClick={() => navigate(-1)}
-          sx={{ mb: 3 }}
+          sx={{ mb: 3, color: "#ffff" }}
         >
           Quay lại
         </Button>
@@ -123,7 +123,7 @@ export const MovieDetail: React.FC = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "300px 1fr" },
+            gridTemplateColumns: { xs: "1fr", sm: "300px 2fr" },
             gap: 3,
           }}
         >
