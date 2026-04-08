@@ -378,10 +378,7 @@ export const ophimService = {
   },
 
   // Tìm kiếm phim theo keyword
-  searchMovies: async (
-    keyword: string,
-    page: number = 1,
-  ): Promise<SearchResponse> => {
+  searchMovies: async (keyword: string): Promise<SearchResponse> => {
     try {
       const response = await axios.get<OphimResponse<SearchResponse>>(
         `${API_BASE_URL}/tim-kiem`,
