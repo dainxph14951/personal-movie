@@ -56,7 +56,7 @@ const Header = () => {
             },
           }}
         >
-          Các thể loại 🎬
+          Các thể loại phim 🎬
         </Button>
       </Toolbar>
     </AppBar>
