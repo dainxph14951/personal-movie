@@ -68,7 +68,7 @@ export const useSearchMovies = (
     const fetchMovies = async () => {
       try {
         setLoading(true);
-        const data = await ophimService.searchMovies(query, currentPage);
+        const data = await ophimService.searchMovies(query);
         setMovies(data.items);
         setTotalPages(data.pagination?.pageRanges || 1);
         setError(null);
