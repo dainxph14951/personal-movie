@@ -36,7 +36,7 @@ const Header = () => {
           sx={{ flexGrow: 1, cursor: "pointer" }}
         >
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-            NHÀ CỦA ĐẠI
+            Only Nhung
           </Link>
         </Typography>
         <Button

@@ -15,7 +15,7 @@ const Footer = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="body2" color="textSecondary">
-          sản phẩm cá nhân không mang tính chất thương mại
+          Sản phẩm cá nhân không mang tính chất thương mại
         </Typography>
       </Container>
     </Box>
